@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Thank You</title>
+  <style>
+    body {
+      text-align: center;
+      padding-top: 100px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f7f7f7;
+      color: #333;
+    }
+
+    h1 {
+      color: #28a745;
+      font-size: 36px;
+    }
+
+    p {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 10px 25px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    a:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Thank you for your request!</h1>
+  <p>We’ve received your book request and will notify you shortly.</p>
+  <a href="{{ url_for('member_logout') }}">Logout</a>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Book</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      padding: 30px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 400px;
+      margin: auto;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin: 15px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button, .back-btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+      margin-top: 10px;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+
+    button:hover, .back-btn:hover {
+      background-color: #45a049;
+    }
+
+    .container {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Add a New Book</h2>
+
+ 
+   {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+       {% for category, message in messages %}
+        window.onload = function() {
+          alert("{{ message }}");
+         };
+      {% endfor %}     
+      {% endif %}
+  {% endwith %}
+  
+
+
+  <!-- ✅ Book Form -->
+  <form method="POST" action="/add_book">
+
+
+    <input type="text" name="title" placeholder="Title" required>
+    <input type="text" name="author" placeholder="Author" required>
+    <input type="text" name="isbn" placeholder="ISBN" required>
+    <button type="submit">Add Book</button>
+  </form>
+
+  <!-- ✅ Back to Dashboard Button -->
+  <div class="container">
+    <a href="{{ url_for('admin_dashboard') }}" class="back-btn">Back to Dashboard</a>
+  </div>
+
+</body>
+</html>

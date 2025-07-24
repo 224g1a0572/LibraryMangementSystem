@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Issue Book</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      padding: 30px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    form {
+      max-width: 500px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .success {
+      text-align: center;
+      color: green;
+    }
+
+    .error {
+      text-align: center;
+      color: red;
+    }
+  </style>
+
+  <script>
+    // Disable past dates in issue_date input
+    window.onload = function () {
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById("issue_date").setAttribute("min", today);
+    }
+  </script>
+</head>
+<body>
+
+  <h2>Issue Book to Member</h2>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <p class="{{ category }}">{{ message }}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <form method="POST" action="{{ url_for('issue_book') }}">
+
+    <!-- Member Text Input (Not Dropdown) -->
+    <label for="member_name">Enter Member Name:</label>
+    <input type="text" name="member_name" required placeholder="Enter Member Username">
+
+    <label for="member_id">Enter Member ID:</label>
+<input type="number" name="member_id" required>
+
+    <!-- Book dropdown -->
+   <label>Select Book:</label><br>
+<select name="book_id" required>
+    {% for book in books %}
+    <option value="{{ book.id }}">{{ book.title }}</option>
+    {% endfor %}
+</select><br><br>
+  <!-- Issue Date -->
+<label for="issue_date">Issue Date:</label>
+<input type="date" name="issue_date" required min="{{ current_date }}">
+
+<!-- Return Date -->
+<label for="return_date">Return Date:</label>
+<input type="date" name="return_date" required min="{{ current_date }}">
+
+    <!-- Submit Button -->
+    <button type="submit">Issue Book</button>
+  </form>
+  <div style="text-align: center; margin-bottom: 20px;">
+  <a href="{{ url_for('admin_dashboard') }}">
+    <button type="button" style="background-color: #2196F3;">Back to Dashboard</button>
+  </a>
+</div>
+
+</body>
+</html>

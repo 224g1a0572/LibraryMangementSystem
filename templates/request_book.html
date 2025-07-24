@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Request Book</title>
+  <style>
+    body { font-family: Arial; background: #f0f0f0; }
+    .form-container {
+      width: 500px; margin: 40px auto;
+      background: #fff; padding: 30px;
+      border-radius: 10px; box-shadow: 0 0 10px #ccc;
+    }
+    h2 { text-align: center; }
+    input, select, button {
+      width: 100%; padding: 10px;
+      margin: 10px 0; border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover { background-color: #218838; }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Request a Book</h2>
+    <form method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="text" name="branch" placeholder="Branch" required>
+      <input type="text" name="section" placeholder="Section" required>
+      <input type="text" name="book_name" placeholder="Book Name" required>
+      <input type="text" name="author" placeholder="Author Name" required>
+      <input type="text" name="edition" placeholder="Edition" required>
+      <button type="submit">Request Book</button>
+    </form>
+  </div>
+</body>
+</html>

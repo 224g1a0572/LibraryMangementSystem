@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Library Management System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+    /* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  text-align: center;
+  background-color: white;
+  padding: 50px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 500px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: #0a3d62;
+}
+
+.tagline {
+  font-size: 1rem;
+  margin-bottom: 30px;
+  color: #34495e;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.admin-btn {
+  background-color: #3498db;
+  color: white;
+}
+
+.member-btn {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.btn:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to the Library Management System</h1>
+    <p class="tagline">Manage books, members, and borrowings efficiently!</p>
+    <div class="buttons">
+      <a href="/admin/login" class="btn admin-btn">Admin Login</a>
+      <a href="/member/login" class="btn member-btn">Member Login</a>
+    </div>
+  </div>
+</body>
+</html>
